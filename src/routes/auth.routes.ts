@@ -1,16 +1,10 @@
-
 import { Router, Request, Response } from 'express';
-import { generateToken } from '../controllers/auth/AuthController';
-
+import GenerateTokenService from '../services/auth/GenerateTokenService';
 
 const AuthRoute = Router();
 
 AuthRoute.post('/authenticate', (request: Request, response: Response) => {
-	generateToken(request.body.user, request.body.password)
-	.then((token: string) => {
-		response.json({ token });
-	});
+	GenerateTokenService.generate(request, response);
 });
-
 
 export default AuthRoute;
