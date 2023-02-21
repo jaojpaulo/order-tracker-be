@@ -1,16 +1,13 @@
 import * as jose from 'jose';
+import envConfig from '../../common/envConfig';
 
 export async function generateToken(user: string, password: string) {
-	const secret = new TextEncoder().encode(
-		'cc7e0d44fd473002f1c42167459001140ec6389b7353f8088f4d9a95f2f596f2',
-	  );
-
-	  const alg = 'HS256'
-
-	  const jwt = await new jose.SignJWT({user, password})
-	  .setProtectedHeader({alg})
-	  .setExpirationTime('1h')
-	  .sign(secret);
+	console.log(envConfig.TOKEN_SECRET)
+	const secret = new TextEncoder().encode(envConfig.TOKEN_SECRET);
+	const jwt = await new jose.SignJWT({user, password})
+	.setProtectedHeader({ alg: envConfig.ALG! })
+	.setExpirationTime('1h')
+	.sign(secret);
 
 	return jwt;
 }
