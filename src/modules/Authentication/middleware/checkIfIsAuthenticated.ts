@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import * as jose from 'jose';
-import envConfig from '../common/envConfig';
+import envConfig from '../../common/envConfig';
 
 export default function checkIfIsAuthenticated(request: Request, response: Response, nextFunction: NextFunction): void {
 	const secret = new TextEncoder().encode(envConfig.TOKEN_SECRET);

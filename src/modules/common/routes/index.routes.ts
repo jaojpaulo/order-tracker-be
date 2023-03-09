@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import AuthRoute from './auth.routes';
-import TrackRout from './track.routes';
+import AuthRoute from '../../Authentication/routes/auth.routes';
+import TrackRout from '../../Track/routes/track.routes';
 
 const router = Router();
 

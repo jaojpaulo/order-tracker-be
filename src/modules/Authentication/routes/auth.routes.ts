@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import GenerateTokenService from '../services/auth/GenerateTokenService';
+import GenerateTokenService from '../services/GenerateTokenService';
 
 const AuthRoute = Router();
 
